@@ -4,9 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data @NoArgsConstructor @Entity @Table(name = "user")
-public class Usuario {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Data @NoArgsConstructor @Entity @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Usuario {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_usuario")
     private double id;
     @Column(name = "Nombre") private String nombre;
     @Column(name = "Apellido") private String apellido;

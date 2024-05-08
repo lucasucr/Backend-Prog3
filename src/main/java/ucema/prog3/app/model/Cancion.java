@@ -4,9 +4,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data @NoArgsConstructor @Entity @Table(name = "cancion")
+import java.util.List;
+
+@Data @NoArgsConstructor @Entity @Table(name = "song")
 public class Cancion {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_song")
     private double id;
     @Column(nullable = false)
     private String Nombre;
@@ -14,4 +16,5 @@ public class Cancion {
     private String Artista;
     @Column(nullable = false)
     private String Album;
+    @ManyToMany(mappedBy = "songs") private List<Playlist> playlists;
 }
