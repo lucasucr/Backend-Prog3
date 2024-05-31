@@ -1,17 +1,12 @@
 package ucema.prog3.app.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.ArrayList;
 import java.util.List;
 
-@Setter
-@Getter
-@Entity @NoArgsConstructor
+@Setter @Getter @Entity @NoArgsConstructor
 public class Publisher extends Usuario{
     @OneToMany(mappedBy = "publisher")
     private List<Playlist> playlists_creadas;
