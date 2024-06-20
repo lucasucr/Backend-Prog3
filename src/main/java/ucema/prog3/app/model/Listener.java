@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @Getter
 @Entity @NoArgsConstructor public class Listener extends Usuario{
-    @ManyToMany
+    @ManyToMany(mappedBy = "playlist_listeners")
     List<Playlist> playlistsGuardadas;
 
     public Listener(String p_nombre, String p_apellido, String p_usuario, String p_password) {
