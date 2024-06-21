@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data @NoArgsConstructor @Entity
 public class Playlist {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_playlist") private double id;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_playlist") private Double id;
     @Column(name = "NombrePlaylist") private String nombre_playlist;
     @ManyToOne
     @JoinColumn(name = "id_usuario", insertable = false, updatable = false)
@@ -29,7 +29,13 @@ public class Playlist {
     )
     private List<Cancion> songs;
 
-    public Playlist(String p_nombre_playlist){
+    public Playlist(String p_nombre_playlist, Publisher pPublisher, List<Cancion> pSongs){
         setNombre_playlist(p_nombre_playlist);
+        setPublisher(pPublisher);
+        setSongs(pSongs);
+    }
+
+    public void addSong(Cancion cancion){
+        this.songs.add(cancion);
     }
 }
