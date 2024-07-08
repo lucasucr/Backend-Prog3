@@ -17,16 +17,14 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     @Override
     @Transactional
-    public Publisher createPublisher(String nombre, String apellido) {
-        Publisher publisher = new Publisher(nombre, apellido);
+    public Publisher createPublisher(Publisher publisher) {
         this.usuarioRepository.save(publisher);
         return publisher;
     }
 
     @Override
     @Transactional
-    public Listener createListener(String nombre, String apellido) {
-        Listener listener = new Listener(nombre, apellido);
+    public Listener createListener(Listener listener) {
         this.usuarioRepository.save(listener);
         return listener;
     }
@@ -40,20 +38,14 @@ public class UsuarioServiceImpl implements UsuarioService{
     @Override
     @Transactional
     public boolean deleteUsuario(Usuario usuario) {
-        if(usuario == null ||usuario.getId() == null){
+        if (usuario == null || usuario.getId() == null) {
             return false;
         }
-        try{
+        try {
             usuarioRepository.delete(usuario);
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
-    }
-
-    @Override
-    @Transactional
-    public void escucharPlaylist(Listener listener, Playlist playlist) {
-        listener.addPlaylist(playlist);
     }
 }

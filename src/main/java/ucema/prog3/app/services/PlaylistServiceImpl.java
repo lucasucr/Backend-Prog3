@@ -17,10 +17,9 @@ public class PlaylistServiceImpl implements PlaylistService {
 
     @Override
     @Transactional
-    public Playlist createPlaylist(String nombrePlaylist, Publisher publisher, List<Cancion> songs) {
-        Playlist playlist = new Playlist(nombrePlaylist, publisher, songs);
+    public Playlist createPlaylist(Playlist playlist) {
         this.playlistRepository.save(playlist);
-        publisher.addPlaylist(playlist);
+        playlist.getPublisher().addPlaylist(playlist);
         return playlist;
     }
 
@@ -72,5 +71,11 @@ public class PlaylistServiceImpl implements PlaylistService {
     @Transactional
     public void addSong(Playlist playlist, Cancion cancion) {
         playlist.addSong(cancion);
+    }
+
+    @Override
+    @Transactional
+    public void escucharPlaylist(Listener listener, Playlist playlist) {
+        listener.addPlaylist(playlist);
     }
 }

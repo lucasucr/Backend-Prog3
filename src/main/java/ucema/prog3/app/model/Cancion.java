@@ -11,11 +11,11 @@ public class Cancion {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_song")
     private Double id;
     @Column(nullable = false)
-    private String Nombre;
+    private String nombre;
     @Column(nullable = false, unique = true)
-    private String Artista;
+    private String artista;
     @Column(nullable = false)
-    private String Album;
+    private String album;
     @ManyToMany(mappedBy = "songs") private List<Playlist> playlists;
 
     public Cancion(String pNombre, String pArtista, String pAlbum){

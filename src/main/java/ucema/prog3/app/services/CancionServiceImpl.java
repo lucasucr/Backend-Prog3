@@ -17,8 +17,7 @@ public class CancionServiceImpl implements CancionService{
 
     @Override
     @Transactional
-    public Cancion createCancion(String nombre, String artista, String album) {
-        Cancion cancion = new Cancion(nombre, artista, album);
+    public Cancion createCancion(Cancion cancion) {
         this.cancionRepository.save(cancion);
         return cancion;
     }
