@@ -16,7 +16,7 @@ public interface CancionService {
 
     List<Cancion> getByNombre(String nombre);
 
-    Optional<Cancion> getByArtista(String artista);
+    List<Cancion> getByArtista(String artista);
 
     List<Cancion> getByAlbum(String album);
 }

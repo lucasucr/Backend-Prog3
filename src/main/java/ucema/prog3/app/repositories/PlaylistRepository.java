@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface PlaylistRepository extends CrudRepository<Playlist, Double> {
 
-    Optional<Playlist> findByPublisher(Publisher publisher);
+    List<Playlist> findByPublisher(Publisher publisher);
 
     List<Playlist> findByNombre(String nombrePlaylist);
 

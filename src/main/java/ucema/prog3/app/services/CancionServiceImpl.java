@@ -56,7 +56,7 @@ public class CancionServiceImpl implements CancionService{
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<Cancion> getByArtista(String artista) {
+    public List<Cancion> getByArtista(String artista) {
         return this.cancionRepository.findByArtista(artista);
     }
 

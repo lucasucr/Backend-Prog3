@@ -17,9 +17,10 @@ public class PlaylistServiceImpl implements PlaylistService {
 
     @Override
     @Transactional
-    public Playlist createPlaylist(Playlist playlist) {
+    public Playlist createPlaylist(String nombre, Publisher publisher, List<Cancion> songs) {
+        Playlist playlist = new Playlist(nombre, publisher, songs);
         this.playlistRepository.save(playlist);
-        playlist.getPublisher().addPlaylist(playlist);
+        publisher.addPlaylist(playlist);
         return playlist;
     }
 
@@ -57,14 +58,8 @@ public class PlaylistServiceImpl implements PlaylistService {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<Playlist> getByPublisher(Publisher publisher) {
+    public List<Playlist> getByPublisher(Publisher publisher) {
         return this.playlistRepository.findByPublisher(publisher);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<Playlist> getByNombreAndPublisher(String nombrePlaylist, Publisher publisher) {
-        return this.playlistRepository.findByNombreAndPublisher(nombrePlaylist, publisher);
     }
 
     @Override

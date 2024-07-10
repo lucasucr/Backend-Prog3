@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PlaylistService {
-    Playlist createPlaylist(Playlist playlist);
+    Playlist createPlaylist(String nombre, Publisher publisher, List<Cancion> songs);
 
     Playlist updatePlaylist(Playlist playlist);
 
@@ -16,9 +16,7 @@ public interface PlaylistService {
 
     List<Playlist> getByNombre(String nombrePlaylist);
 
-    Optional<Playlist> getByPublisher(Publisher publisher);
-
-    List<Playlist> getByNombreAndPublisher(String nombrePlaylist, Publisher publisher);
+    List<Playlist> getByPublisher(Publisher publisher);
 
     void addSong(Playlist playlist, Cancion cancion);
 

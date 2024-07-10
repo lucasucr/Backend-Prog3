@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface CancionRepository extends CrudRepository<Cancion, Double> {
     List<Cancion> findByNombre(String nombre);
 
-    Optional<Cancion> findByArtista(String artista);
+    List<Cancion> findByArtista(String artista);
 
     List<Cancion> findByAlbum(String album);
 }
