@@ -4,7 +4,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import ucema.prog3.app.model.Usuario;
 
+import java.util.Optional;
+
 @Repository
 public interface UsuarioRepository extends CrudRepository<Usuario, Double> {
-    //No uso ninguna funcion especifica, por lo que lo dejo asi
+
+    Optional<Usuario> findByUsername(String username);
 }

@@ -8,8 +8,14 @@ import ucema.prog3.app.model.*;
 @RequestMapping(value = "/api/usuario")
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class UsuarioController {
+
     @Autowired
     private UsuarioService usuarioService;
+
+    @GetMapping(value = "")
+    public Usuario getUserInfo(){
+        return usuarioService.getUserInfo();
+    }
 
     @PostMapping(value = "/publisher")
     public Usuario createPublisher(@RequestBody Publisher publisher){

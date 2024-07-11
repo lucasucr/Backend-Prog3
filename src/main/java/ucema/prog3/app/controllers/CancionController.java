@@ -36,18 +36,18 @@ public class CancionController {
         return cancionService.getAll();
     }
 
-    @GetMapping(value = "/search")
-    public List<Cancion> getByNombre(@RequestParam(required = true) String nombre){
+    @GetMapping(value = "/search/{nombre}")
+    public List<Cancion> getByNombre(@PathVariable String nombre){
         return cancionService.getByNombre(nombre);
     }
 
-    @GetMapping(value = "/search")
-    public List<Cancion> getByArtista(@RequestParam(required = true) String artista){
+    @GetMapping(value = "/search/{artista}")
+    public List<Cancion> getByArtista(@PathVariable String artista){
         return cancionService.getByArtista(artista);
     }
 
-    @GetMapping(value = "/search")
-    public List<Cancion> getByAlbum(@RequestParam(required = true) String album){
+    @GetMapping(value = "/search/{album}")
+    public List<Cancion> getByAlbum(@PathVariable String album){
         return cancionService.getByAlbum(album);
     }
 }

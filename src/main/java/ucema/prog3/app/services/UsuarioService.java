@@ -10,4 +10,8 @@ public interface UsuarioService {
     Usuario updateUsuario(Usuario usuario);
 
     boolean deleteUsuario(Usuario usuario);
+
+    Usuario getUserInfo();
+
+    boolean checkLogin(String username, String password);
 }

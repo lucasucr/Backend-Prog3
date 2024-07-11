@@ -40,13 +40,13 @@ public class PlaylistController {
         return playlistService.getAll();
     }
 
-    @GetMapping(value = "/search")
-    public List<Playlist> getByNombre(@RequestParam(required = true) String nombrePlaylist){
+    @GetMapping(value = "/search/{nombrePlaylist}")
+    public List<Playlist> getByNombre(@PathVariable String nombrePlaylist){
         return playlistService.getByNombre(nombrePlaylist);
     }
 
-    @GetMapping(value = "/search")
-    public List<Playlist> getByPublisher(@RequestParam(required = true) Publisher publisher){
+    @GetMapping(value = "/search/{publisher}")
+    public List<Playlist> getByPublisher(@PathVariable Publisher publisher){
         return playlistService.getByPublisher(publisher);
     }
 
@@ -56,7 +56,7 @@ public class PlaylistController {
     }
 
     @PutMapping(value = "/listen")
-    public void escucharPlaylist(Listener listener, Playlist playlist){
+    public void escucharPlaylist(@RequestBody Listener listener, @RequestBody Playlist playlist){
         playlistService.escucharPlaylist(listener, playlist);
     }
 }
