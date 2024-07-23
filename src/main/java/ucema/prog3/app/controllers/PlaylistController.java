@@ -51,7 +51,7 @@ public class PlaylistController {
     }
 
     @PutMapping(value = "/add")
-    public void addSong(@RequestBody Playlist playlist, @RequestParam(required = true) Cancion cancion){
+    public void addSong(@RequestBody Playlist playlist, @RequestBody(required = true) Cancion cancion){
         playlistService.addSong(playlist, cancion);
     }
 
