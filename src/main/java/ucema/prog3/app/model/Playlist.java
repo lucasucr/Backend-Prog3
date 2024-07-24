@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data @NoArgsConstructor @Entity
@@ -33,9 +34,14 @@ public class Playlist {
         setNombre(pNombre);
         setPublisher(pPublisher);
         setSongs(pSongs);
+        playlist_listeners = new ArrayList<Listener>();
     }
 
     public void addSong(Cancion cancion){
         this.songs.add(cancion);
+    }
+
+    public void addListener(Listener listener){
+        this.playlist_listeners.add(listener);
     }
 }

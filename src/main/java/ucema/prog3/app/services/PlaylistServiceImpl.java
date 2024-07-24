@@ -72,5 +72,6 @@ public class PlaylistServiceImpl implements PlaylistService {
     @Transactional
     public void escucharPlaylist(Listener listener, Playlist playlist) {
         listener.addPlaylist(playlist);
+        playlist.addListener(listener);
     }
 }
