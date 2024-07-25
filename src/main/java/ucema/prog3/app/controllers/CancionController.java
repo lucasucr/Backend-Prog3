@@ -36,17 +36,17 @@ public class CancionController {
         return cancionService.getAll();
     }
 
-    @GetMapping(value = "/search/{nombre}")
+    @GetMapping(value = "/nombre/{nombre}")
     public List<Cancion> getByNombre(@PathVariable String nombre){
         return cancionService.getByNombre(nombre);
     }
 
-    @GetMapping(value = "/search/{artista}")
+    @GetMapping(value = "/artista/{artista}")
     public List<Cancion> getByArtista(@PathVariable String artista){
         return cancionService.getByArtista(artista);
     }
 
-    @GetMapping(value = "/search/{album}")
+    @GetMapping(value = "/album/{album}")
     public List<Cancion> getByAlbum(@PathVariable String album){
         return cancionService.getByAlbum(album);
     }

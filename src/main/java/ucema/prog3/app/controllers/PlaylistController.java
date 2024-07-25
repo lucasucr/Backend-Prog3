@@ -40,12 +40,12 @@ public class PlaylistController {
         return playlistService.getAll();
     }
 
-    @GetMapping(value = "/search/{nombrePlaylist}")
+    @GetMapping(value = "/nombre/{nombrePlaylist}")
     public List<Playlist> getByNombre(@PathVariable String nombrePlaylist){
         return playlistService.getByNombre(nombrePlaylist);
     }
 
-    @GetMapping(value = "/search/{publisher}")
+    @GetMapping(value = "/publisher/{publisher}")
     public List<Playlist> getByPublisher(@PathVariable Publisher publisher){
         return playlistService.getByPublisher(publisher);
     }
