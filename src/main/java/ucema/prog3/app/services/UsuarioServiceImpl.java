@@ -25,7 +25,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     @Override
     @Transactional
     public Publisher createPublisher(Usuario publisher) {
-        Publisher newPublisher = new Publisher(publisher.nombre, publisher.apellido, publisher.username, publisher.password);
+        Publisher newPublisher = new Publisher(publisher.getNombre(), publisher.getApellido(), publisher.getUsername(), publisher.getPassword());
         this.usuarioRepository.save(newPublisher);
         return newPublisher;
     }
@@ -33,9 +33,9 @@ public class UsuarioServiceImpl implements UsuarioService{
     @Override
     @Transactional
     public Listener createListener(Usuario listener) {
-        Listener newListener = new Listener(listener.nombre, listener.apellido, listener.username, listener.password);
+        Listener newListener = new Listener(listener.getNombre(), listener.getApellido(), listener.getUsername(), listener.getPassword());
         this.usuarioRepository.save(newListener);
-        return listener;
+        return newListener;
     }
 
     @Override
