@@ -33,6 +33,7 @@ public class SpringSecurityConfig {
                         .requestMatchers("api/song/**").hasAuthority("PUBLISHER")
                         .requestMatchers("api/playlist/add").hasAuthority("PUBLISHER")
                         .requestMatchers(HttpMethod.POST, "api/usuario/**").permitAll()
+                        .requestMatchers("api/login").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())
