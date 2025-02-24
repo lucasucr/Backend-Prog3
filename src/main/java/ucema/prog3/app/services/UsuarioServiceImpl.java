@@ -24,16 +24,19 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     @Override
     @Transactional
-    public Publisher createPublisher(Usuario publisher) {
+    public Publisher createPublisher(Publisher publisher) {
         Publisher newPublisher = new Publisher(publisher.getNombre(), publisher.getApellido(), publisher.getUsername(), publisher.getPassword());
+        newPublisher.setPassword(passwordEncoder.encode(newPublisher.getPassword()));
+        System.out.println("banana");
         this.usuarioRepository.save(newPublisher);
         return newPublisher;
     }
 
     @Override
     @Transactional
-    public Listener createListener(Usuario listener) {
+    public Listener createListener(Listener listener) {
         Listener newListener = new Listener(listener.getNombre(), listener.getApellido(), listener.getUsername(), listener.getPassword());
+        newListener.setPassword(passwordEncoder.encode(newListener.getPassword()));
         this.usuarioRepository.save(newListener);
         return newListener;
     }

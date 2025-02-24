@@ -3,9 +3,9 @@ package ucema.prog3.app.services;
 import ucema.prog3.app.model.*;
 
 public interface UsuarioService {
-    Publisher createPublisher(Usuario publisher);
+    Publisher createPublisher(Publisher publisher);
 
-    Listener createListener(Usuario listener);
+    Listener createListener(Listener listener);
 
     Usuario updateUsuario(Usuario usuario);
 

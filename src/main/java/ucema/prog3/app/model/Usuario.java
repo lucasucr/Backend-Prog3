@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Data @NoArgsConstructor @Entity @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Usuario implements UserDetails {
     @Id @GeneratedValue(strategy = GenerationType.TABLE) @Column(name = "id_usuario")
-    private Double id;
+    private Long id;
     @Column(name = "Nombre")
     private String nombre;
     @Column(name = "Apellido")

@@ -18,12 +18,12 @@ public class UsuarioController {
     }
 
     @PostMapping(value = "/publisher")
-    public Usuario createPublisher(@RequestBody Usuario publisher){
+    public Usuario createPublisher(@RequestBody Publisher publisher){
         return usuarioService.createPublisher(publisher);
     }
 
     @PostMapping(value = "/listener")
-    public Usuario createListener(@RequestBody Usuario listener){
+    public Usuario createListener(@RequestBody Listener listener){
         return usuarioService.createListener(listener);
     }
 
